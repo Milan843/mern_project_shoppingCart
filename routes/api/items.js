@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-
+const auth=require('../../middleware/auth')
 //itemModel
 const Item = require("../../models/Items");
 
 //@route GET api/items
 //@desc Get All items
-//@access Public
+//@access private
 
 router.get('/',(req,res)=>{
     Item.find({})
@@ -19,7 +19,7 @@ router.get('/',(req,res)=>{
 
 //@route POST api/items
 //@desc CREATE a post
-//@access Public
+//@access private
 
 router.post('/',(req,res)=>{
    const newItem=new Item({
